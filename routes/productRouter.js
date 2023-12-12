@@ -8,6 +8,7 @@ router.get('/AllProducts',getAllProduct);
  router.route('/admin/AllProducts').get(authentication, authoriseRoles('admin'),getAdminAllProduct);
 
 router.route('/:id').put(authentication,authoriseRoles('admin'),updateProduct).delete(authentication,authoriseRoles('admin'),deleteProduct).get(authentication,authoriseRoles('admin'),productDetails);
+router.route('/:id').get(productDetails);
 router.post('/review/new',authentication,createProductReview);
 // router.route('/reviews').delete(authentication,deleteProductReview);
 router.route('/reviews/:id').get(getAllProductReview).delete(deleteProductReview);
